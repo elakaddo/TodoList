@@ -4,22 +4,22 @@ import { StyleSheet, Text, View,TextInput } from 'react-native';
 import TodoList from './components/TodoList';
 
 export default function App(){
+
     return (
       <View style={styles.container}>
           <Text style={styles.titre} >Gestion des tâches</Text>
           <View style={styles.taches}>
-            <TodoList />
+            <TodoList/>
           </View>
       </View>
     );
-  
-  
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#D9D9D9',
+    paddingTop : 20
   },
   titre : {
     fontWeight : 'bold',
@@ -29,6 +29,6 @@ const styles = StyleSheet.create({
     marginLeft : 20,
   },
   taches : {
-    margin : 30
+    margin : 18
   }
 });

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { View, Text, StyleSheet, Switch, TouchableOpacity,} from "react-native";
 import { Image } from "react-native";
 
@@ -7,18 +7,25 @@ export default function TodoItem (props) {
 
     const [done, setDone] = useState(props.item.done);
     const changeSwitch = (id) => {
-        props.changeItem(props.item.id)
-        setDone(!done)
+        props.changeItem(id);
+        setDone(!done);
     }
+    useEffect(() => {
+        setDone(props.item.done)
+      }, [props.item.done])
+
      return (
             <View style={styles.element}>
                     <View style={styles.elementGauche}>
                         <Switch 
                                 value = {done}
                                 onValueChange = {(state) => { changeSwitch(props.item.id)}}/>
-                        <Text style={[styles.tache, {textDecorationLine: done ? 'line-through' : 'none'}]}> {props.item.id} - {props.item.content}</Text>
+                            
+                        <Text style={[styles.tache, {textDecorationLine: done ? 'line-through' : 'none'}]}> 
+                            {props.item.id} - {props.item.content}
+                        </Text>
                     </View>
-                    <TouchableOpacity  style={styles.elementDroite}>
+                    <TouchableOpacity  style={styles.elementDroite} onPress={() =>props.deleteTodo(props.item.id)}>
                         <Image source={{uri : ('https://cdn-icons-png.flaticon.com/512/561/561125.png')}} style={{width : 30, height: 30 }}/>
                     </TouchableOpacity>
             </View>

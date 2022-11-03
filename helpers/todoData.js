@@ -1,23 +1,24 @@
+// Helpers/todoData.js
+
 const todoData = [
     {
         id: 1,
-        content: "La prière de Al-Subh",
+        content: "faire ses devoirs",
         done: true
     },
     {
         id: 2,
-        content: "Lire le Quran - Al Baqarah",
+        content: "ranger sa chambre",
         done: false
     },
     {
         id: 3,
-        content: "Avancer au TP - React Native",
+        content: "essuyer la vaisselle",
         done: false
-    }  
-    ,{
-        id: 4,
-        content: "Salle de sport - Basic Fit",
-        done : false
     }
 ];
+
 export default todoData
+
+
+
